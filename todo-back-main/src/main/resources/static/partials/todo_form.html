@@ -1,0 +1,13 @@
+<input  name="desc" ng-model="todo.desc" type="text" class="form-control" placeholder="Entrez une description" aria-describedby="basic-addon1" required minlength="5" maxlength="20" size="20">
+
+<select ng-model="todo.stat" class="form-control">
+	<option>A faire</option>
+	<option>En cours</option>
+	<option>Fait</option>
+</select>
+
+<button class="btn btn-success">Envoyer</button> 
+<button class="btn btn-warning" ng-click="cancel()">Annuler</button> 
+
+<div ng-messages="myform.desc.$error" ng-messages-include="errors.html" >
+</div>

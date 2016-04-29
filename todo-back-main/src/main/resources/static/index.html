@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" ng-app="MyApp">
+<head>
+  <meta charset="utf-8">
+  <title>My app</title>
+
+  <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css">
+  
+  <script src="./bower_components/angular/angular.js"></script>
+  <script src="./bower_components/angular-route/angular-route.js"></script>
+  <script src="./bower_components/angular-resource/angular-resource.js"></script>
+  <script src="./bower_components/angular-messages/angular-messages.js"></script>
+  <script src="./app/js/app.js"></script>
+  <script src="./app/js/services.js"></script>
+  <script src="./app/js/controllers.js"></script>
+</head>
+<body ng-controller="RootController">
+
+    <ul class="nav nav-tabs">
+    	<li role="list"><a href="#/">Home</a></li>
+    	<li role="list" ng-hide="authenticated"><a href="#/login">Connexion</a></li>
+      	<li role="list"ng-hide="authenticated"><a href="#/register">Inscription</a></li>
+      	<li role="list" ng-show="authenticated"><a href="#/todos">Liste</a></li>
+      	<li role="list" ng-show="authenticated"><a href="#/todoadd">Ajouter</a></li>
+      	<li role="list" ng-show="authenticated"><a href="" ng-click="logout()">Deconnexion</a></li>
+    </ul>
+
+    <div class="view-container">
+      <div ng-view class="view-frame"></div>
+    </div>
+
+</body>
+</html>

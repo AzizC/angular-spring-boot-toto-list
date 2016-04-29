@@ -1,0 +1,30 @@
+<div class="container">
+
+    <div class="page-header">
+        <h1>Liste</h1>
+    </div>
+
+    <select ng-model="display" class="form-control" ng-change="toDisplay()">
+        <option>Tous</option>
+        <option>A faire</option>
+        <option>En cours</option>
+        <option>Fait</option>
+    </select>
+
+    <div class="alert alert-info" role="alert" ng-hide="todos && todos.length > 0">
+        La liste des todos en "{{display}}" est vide.
+    </div>
+
+    <div ng-repeat="todo in todos">
+        <div class="checkbox col-xs-9">
+            <label>
+                <a href="#/todos/{{todo.id}}">{{todo.desc}}</a> <span ng-show="display == 'Tous'" ng-class="'label label-'+getBackgroundColour(todo.stat)">{{todo.stat}}</span>
+            </label>
+        </div>
+        <div class="col-xs-3" ng-controller="DelController">
+            <button class="pull-right btn btn-danger" type="button" title="Delete" ng-click="delTodo(todo)">
+                <span class="glyphicon glyphicon-trash"></span>
+            </button>
+        </div>
+    </div>
+</div>
